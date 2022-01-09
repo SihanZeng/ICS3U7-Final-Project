@@ -1,71 +1,75 @@
-//import packages
-import java.awt.*;
-import java.awt.image.*;
+/*import packages*/
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.*;
 
-public class Menu extends JPanel implements Runnable {
-  //set the frame's fields
-  public static final int WIDTH = 800;
-  public static final int HEIGHT = 600;
-  
-  //declare variables
-  private Thread thread;
-  private boolean running;
-  private BufferedImage image;
-  private Graphics2D g;
+public class Menu {
+	/*declare variables*/
+	Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
+	Font font = new Font("Times New Roman", Font.PLAIN, 20);
 
-  //call the constructor to create panel
-  public Menu() {
-    super();
-    setPreferredSize(new Dimension(WIDTH, HEIGHT));
-    //focus panel onto frame
-    setFocusable(true);
-    requestFocus();
-  }
-
-  //override notify function
-  public void addNotify() {
-    super.addNotify();
-    //start thread
-    if(thread == null) {
-      //initialize thread to this panel
-      thread = new Thread(this);
-      thread.start();
-    }
-  }
-
-  //run function for thread to activate
-  public void run() {
-    //initialize running variables
-    running = true;
-    image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-    g = (Graphics2D) image.getGraphics();
-    //frame loop
-    while(running) {
-      frameUpdate();
-      frameRender();
-      frameDraw();
-    }
-  }
-
-  private void frameUpdate() {
-
-  }
-
-  //function to double buffer frame onto backframe
-  private void frameRender() {
-    /*test variables*/
-    g.setColor(Color.WHITE);
-    g.fillRect(0, 0, WIDTH, HEIGHT);
-    g.setColor(Color.BLACK);
-    g.drawString("TEST STRING", 100, 100);
-
-  }
-
-  //function to draw backframe onto frame
-  private void frameDraw() {
-    Graphics g2 = this.getGraphics();
-    g2.drawImage(image, 0, 0, null);
-    g2.dispose();
-  }
+  /*create frame*/
+	public void createFrame() {
+		/*initialize frame*/
+    JFrame frame = new JFrame();
+		frame.setSize(800, 600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.getContentPane().setBackground(Color.BLACK);
+		frame.setLayout(null);
+		
+		/*set title screen*/
+		JPanel titleNamePanel = new JPanel();
+		titleNamePanel.setBounds(100, 100, 600, 500);
+		titleNamePanel.setBackground(Color.BLACK);
+		JLabel titleNameLabel = new JLabel("PREDATOR");
+		titleNameLabel.setForeground(Color.WHITE);
+		titleNameLabel.setFont(titleFont);
+		titleNamePanel.add(titleNameLabel);
+		JLabel titleAuthorLabel = new JLabel("By: Patricia Carucinschi & Sihan Zeng (ICS-3U7 Final Project)");
+		titleAuthorLabel.setForeground(Color.WHITE);
+		titleAuthorLabel.setFont(font);
+		titleNamePanel.add(titleAuthorLabel);
+		
+    /*create button panels*/
+		JPanel startButtonPanel = new JPanel(); //start button panel
+		startButtonPanel.setBounds(300, 400, 100, 50);
+		startButtonPanel.setBackground(Color.BLACK);
+    JPanel instructionsButtonPanel = new JPanel(); //instructions button panel
+		instructionsButtonPanel.setBounds(300, 450, 200, 300);
+		instructionsButtonPanel.setBackground(Color.BLACK);
+    JPanel closeButtonPanel = new JPanel(); //close button panel
+		closeButtonPanel.setBounds(300, 500, 200, 300);
+		closeButtonPanel.setBackground(Color.BLACK);
+    
+    /*create buttons*/
+    JButton startButton = new JButton("START"); //start button
+		startButton.setBackground(Color.BLACK);
+		startButton.setForeground(Color.WHITE);
+		startButton.setFont(font);
+		startButton.setFocusPainted(false);	
+		JButton instructionsButton = new JButton ("INSTRUCTIONS"); //instructions button
+		instructionsButton.setBackground(Color.BLACK);
+		instructionsButton.setForeground(Color.WHITE);
+		instructionsButton.setFont(font);
+		instructionsButton.setFocusPainted(false);
+		JButton closeButton = new JButton("CLOSE"); //close button
+		closeButton.setBackground(Color.BLACK);
+		closeButton.setForeground(Color.WHITE);
+		closeButton.setFont(font);
+		closeButton.setFocusPainted(false);
+		
+		/*add buttons to panels*/
+    startButtonPanel.add(startButton);
+    instructionsButtonPanel.add(instructionsButton);
+    closeButtonPanel.add(closeButton);
+		
+    /*add panels to frame*/
+		frame.add(titleNamePanel);
+		frame.add(startButtonPanel);
+		frame.add(instructionsButtonPanel);
+		frame.add(closeButtonPanel);
+		
+    /*set frame to be visible*/
+		frame.setVisible(true);
+	}
 }
