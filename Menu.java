@@ -8,29 +8,30 @@ public class Menu {
 	Font font = new Font("Times New Roman", Font.PLAIN, 20);
 
 	/*create frame*/
-	public void createFrame() {
+	public void createMenu() {
+    
 		/*initialize frame*/
-		JFrame frame = new JFrame();
-		frame.setSize(800, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setBackground(Color.BLACK);
-		frame.setLayout(new GridLayout(2, 1));
+		JFrame menuFrame = new JFrame();
+		menuFrame.setSize(800, 600);
+		menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		menuFrame.getContentPane().setBackground(Color.BLACK);
+		menuFrame.setLayout(new GridLayout(2, 1));
 
 		/*set title screen*/
-		JPanel titleNamePanel = new JPanel();
-		titleNamePanel.setBackground(Color.BLACK);
-		JLabel titleNameLabel = new JLabel("PREDATOR");
-		titleNameLabel.setForeground(Color.WHITE);
-		titleNameLabel.setFont(titleFont);
-		titleNameLabel.setHorizontalAlignment(0);
-		JLabel titleAuthorLabel = new JLabel("By: Patricia Carucinschi & Sihan Zeng (ICS-3U7 Final Project)");
-		titleAuthorLabel.setForeground(Color.WHITE);
-		titleAuthorLabel.setFont(font);
-		titleAuthorLabel.setHorizontalAlignment(0);
-		titleNamePanel.setLayout(new GridLayout(4, 1));
-		titleNamePanel.add(new JLabel(""));
-		titleNamePanel.add(titleNameLabel);
-		titleNamePanel.add(titleAuthorLabel);
+		JPanel titlePanel = new JPanel();
+		titlePanel.setBackground(Color.BLACK);
+		JLabel titleLabel = new JLabel("PREDATOR");
+		titleLabel.setForeground(Color.WHITE);
+		titleLabel.setFont(titleFont);
+		titleLabel.setHorizontalAlignment(0);
+		JLabel authorLabel = new JLabel("By: Patricia Carucinschi & Sihan Zeng (ICS-3U7 Final Project)");
+		authorLabel.setForeground(Color.WHITE);
+		authorLabel.setFont(font);
+		authorLabel.setHorizontalAlignment(0);
+		titlePanel.setLayout(new GridLayout(4, 1));
+		titlePanel.add(new JLabel(""));
+		titlePanel.add(titleLabel);
+		titlePanel.add(authorLabel);
 
 		/*create button panel*/
 		JPanel buttonPanel = new JPanel();
@@ -38,19 +39,24 @@ public class Menu {
 		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
 
 		/*create buttons*/
-		JButton startButton = new JButton("        START       "); //start button
+    //start button
+		JButton startButton = new JButton("        START       ");
 		startButton.setBackground(Color.BLACK);
 		startButton.setForeground(Color.WHITE);
 		startButton.setFont(font);
 		startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		startButton.setFocusPainted(false);	
-		JButton instructionsButton = new JButton ("INSTRUCTIONS"); //instructions button
+		
+    //instructions button
+		JButton instructionsButton = new JButton ("INSTRUCTIONS"); 
 		instructionsButton.setBackground(Color.BLACK);
 		instructionsButton.setForeground(Color.WHITE);
 		instructionsButton.setFont(font);
 		instructionsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		instructionsButton.setFocusPainted(false);
-		JButton closeButton = new JButton("        CLOSE       "); //close button
+		
+    //close button
+		JButton closeButton = new JButton("        CLOSE       "); 
 		closeButton.setBackground(Color.BLACK);
 		closeButton.setForeground(Color.WHITE);
 		closeButton.setFont(font);
@@ -65,10 +71,19 @@ public class Menu {
 		buttonPanel.add(closeButton);
 
 		/*add panels to frame*/
-		frame.add(titleNamePanel);
-		frame.add(buttonPanel);
-
+		menuFrame.add(titlePanel);
+		menuFrame.add(buttonPanel);
+		
+		/*Instructions Frame
+		JFrame instructionsFrame = new JFrame();
+		instructionsFrame.setSize(800, 600);
+		instructionsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		instructionsFrame.getContentPane().setBackground(Color.BLACK);
+		instructionsFrame.setLayout(new GridLayout(2, 1));
+    */
+		
 		/*set frame to be visible*/
-		frame.setVisible(true);
+		menuFrame.setVisible(true);
 	}
+	
 }

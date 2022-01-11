@@ -9,6 +9,6 @@ public class Main {
 	
 	public Main() {
     /*call on create frame*/
-		ui.createFrame();
+		ui.createMenu();
 	}
 }
