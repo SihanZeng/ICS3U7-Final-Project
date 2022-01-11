@@ -1,7 +1,7 @@
 public class Main {
 	
   /*create ui object*/
-	Menu ui = new Menu();
+  Game ui2 = new Game();
 	
 	public static void main (String[] args) {
 		new Main();
@@ -9,6 +9,6 @@ public class Main {
 	
 	public Main() {
     /*call on create frame*/
-		ui.createMenu();
+    ui2.createGame();
 	}
 }

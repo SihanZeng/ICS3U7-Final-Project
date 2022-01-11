@@ -15,7 +15,7 @@ public class Game {
     JPanel leftPanel = new JPanel();
     leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
     JPanel rightPanel = new JPanel();
-    rightPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
+    rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
 
     /*customize panels*/
     //left panel
@@ -25,9 +25,11 @@ public class Game {
     JButton choice2Button = new JButton(" "); //different
     JButton choice3Button = new JButton(" "); //different
     //right panel
-    ImageIcon sceneImage = new ImageIcon(" "); //tbd 
-    ImageIcon weaponImage = new ImageIcon(" "); //tbd
+    ImageIcon sceneImage_ = new ImageIcon("knife_image.png"); //tbd 
+    JLabel sceneImage = new JLabel(sceneImage_);
+    ImageIcon weaponImage_ = new ImageIcon("knife_image.png"); //tbd
     JLabel hpLabel = new JLabel("HP: "); //different
+    JLabel weaponImage = new JLabel(weaponImage_);
     
     /*add components to panel*/
     //left panel
