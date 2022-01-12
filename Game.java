@@ -7,6 +7,7 @@ public class Game {
   /*create frame*/
 	public void createGame() {
 		JFrame gameFrame = new JFrame("Predator");
+    gameFrame.setSize(800, 600);
 		gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gameFrame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		gameFrame.setLayout(new FlowLayout());
@@ -25,9 +26,9 @@ public class Game {
     JButton choice2Button = new JButton(" "); //different
     JButton choice3Button = new JButton(" "); //different
     //right panel
-    ImageIcon sceneImage_ = new ImageIcon("knife_image.png"); //tbd 
+    ImageIcon sceneImage_ = new ImageIcon("Assets/knife_image.png"); //tbd 
     JLabel sceneImage = new JLabel(sceneImage_);
-    ImageIcon weaponImage_ = new ImageIcon("knife_image.png"); //tbd
+    ImageIcon weaponImage_ = new ImageIcon("Assets/knife_image.png"); //tbd
     JLabel hpLabel = new JLabel("HP: "); //different
     JLabel weaponImage = new JLabel(weaponImage_);
     
