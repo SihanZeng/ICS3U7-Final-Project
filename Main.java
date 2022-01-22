@@ -1,7 +1,9 @@
 public class Main {
 	
-  /*create ui object*/
-  Game ui2 = new Game(); //ui1 for menu
+  /*instantiate objects*/
+  ChoiceHandler cHandler = new ChoiceHandler(this);
+  Menu ui = new Menu();
+
 	
 	public static void main (String[] args) {
 		new Main();
@@ -9,6 +11,6 @@ public class Main {
 	
 	public Main() {
     /*call on create frame*/
-    ui2.createGame();
+    ui.createMenu();
 	}
 }
