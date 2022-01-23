@@ -2,7 +2,7 @@ public class Main {
 	
   /*instantiate objects*/
   ChoiceHandler cHandler = new ChoiceHandler(this);
-  Menu ui = new Menu();
+  UI ui = new UI();
 
 	
 	public static void main (String[] args) {
@@ -11,6 +11,6 @@ public class Main {
 	
 	public Main() {
     /*call on create frame*/
-    ui.createMenu();
+    ui.createUI();
 	}
 }
