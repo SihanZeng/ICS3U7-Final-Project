@@ -1,16 +1,19 @@
 public class Main {
 	
-  /*instantiate objects*/
-  ChoiceHandler cHandler = new ChoiceHandler(this);
-  UI ui = new UI();
-
+	/*instantiate classes*/
+	ChoiceHandler cHandler = new ChoiceHandler(this);
+	UI ui = new UI();
+	VisibilityManager vm = new VisibilityManager(ui);
 	
-	public static void main (String[] args) {
+	public static void main(String[] args) {
 		new Main();
 	}
 	
+	/*create frame*/
 	public Main() {
-    /*call on create frame*/
-    ui.createUI();
+		ui.createUI(cHandler);
+		vm.displayMenu();
 	}
+
 }
+
