@@ -18,10 +18,15 @@ public class ChoiceHandler implements ActionListener{
 			game.vm.displayGame();
 			break;
 		case "instructions":
+			game.vm.displayInstructions();
+			break;
+		case "return":
+			game.vm.displayGame();
 			break;
 		case "close":
 			break;
 		case "c1": 
+			game.vm.displayMenu();
 			break;
 		case "c2": 
 			break;

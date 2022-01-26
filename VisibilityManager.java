@@ -1,5 +1,9 @@
 /*import color for background*/
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.GridLayout;
+
+import javax.swing.JPanel;
 
 public class VisibilityManager {
 
@@ -7,42 +11,51 @@ public class VisibilityManager {
 	UI ui;
 
 	/*constructor to access UI class*/
-	public VisibilityManager(UI userInterface) {
-		ui = userInterface;
+	public VisibilityManager(UI ui) {
+		this.ui = ui;
 	}
 
-	/*method to display menu and hide game*/
-	public void displayMenu() {
-		//show menu components
-		ui.titlePanel.setVisible(true);
-		ui.buttonPanel.setVisible(true);
+	/*method to display menu and hide others*/
+	public void displayMenu() {	
 		//hide game components
-		ui.storyPanel.setVisible(false);
-		ui.questionPanel.setVisible(false);
-		ui.choiceButtonPanel.setVisible(false);
-		ui.imagePanel.setVisible(false);
-		ui.hpPanel.setVisible(false);
+		ui.leftPanel.setVisible(false);
+		ui.rightPanel.setVisible(false);
+		//hide instructions components
+		ui.explanationPanel.setVisible(false);
+		ui.returnPanel.setVisible(false);
 		//set background color
 		ui.frame.getContentPane().setBackground(Color.black);
-		
-    /*repaint button panel to avoid invisible button bug*/
-		for(int i = 0; i < 1000000; i++) {
-			ui.buttonPanel.repaint();
-		}
+		//show menu components
+		ui.linePanel1.setVisible(true);
+		ui.titlePanel.setVisible(true);
+		ui.linePanel2.setVisible(true);
+		ui.buttonPanel.setVisible(true);
+
 	}
 
-	/*method to display game and hide menu*/
+	/*method to display game and hide others*/
 	public void displayGame() {
-		//show game components
-		ui.storyPanel.setVisible(true);
-		ui.questionPanel.setVisible(true);
-		ui.choiceButtonPanel.setVisible(true);
-		ui.imagePanel.setVisible(true);
-		ui.hpPanel.setVisible(true);
-		//hide game components
+		
+		//hide menu components
 		ui.titlePanel.setVisible(false);
 		ui.buttonPanel.setVisible(false);
+		ui.linePanel1.setVisible(false);
+		ui.linePanel2.setVisible(false);
+		//hide instructions components
+		ui.explanationPanel.setVisible(false);
+		ui.returnPanel.setVisible(false);
 		//set background color
 		ui.frame.getContentPane().setBackground(Color.lightGray);
+		//show game components
+		ui.leftPanel.setVisible(true);
+		ui.rightPanel.setVisible(true);
+
 	}
+
+	/*method to display instructions and hide others*/
+	public void displayInstructions() {
+
+
+	}
+
 }
