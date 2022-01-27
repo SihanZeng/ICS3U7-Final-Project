@@ -1,9 +1,5 @@
 /*import color for background*/
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.GridLayout;
-
-import javax.swing.JPanel;
 
 public class VisibilityManager {
 
@@ -21,7 +17,10 @@ public class VisibilityManager {
 		ui.leftPanel.setVisible(false);
 		ui.rightPanel.setVisible(false);
 		//hide instructions components
-		ui.explanationPanel.setVisible(false);
+		ui.explanationPanel1.setVisible(false);
+		ui.explanationImagePanel.setVisible(false);
+		ui.linePanel3.setVisible(false);
+		ui.explanationPanel2.setVisible(false);
 		ui.returnPanel.setVisible(false);
 		//set background color
 		ui.frame.getContentPane().setBackground(Color.black);
@@ -42,7 +41,10 @@ public class VisibilityManager {
 		ui.linePanel1.setVisible(false);
 		ui.linePanel2.setVisible(false);
 		//hide instructions components
-		ui.explanationPanel.setVisible(false);
+		ui.explanationPanel1.setVisible(false);
+		ui.explanationImagePanel.setVisible(false);
+		ui.explanationPanel2.setVisible(false);
+		ui.linePanel3.setVisible(false);
 		ui.returnPanel.setVisible(false);
 		//set background color
 		ui.frame.getContentPane().setBackground(Color.lightGray);
@@ -54,7 +56,20 @@ public class VisibilityManager {
 
 	/*method to display instructions and hide others*/
 	public void displayInstructions() {
-
+		//hide menu components
+		ui.titlePanel.setVisible(false);
+		ui.buttonPanel.setVisible(false);
+		ui.linePanel1.setVisible(false);
+		ui.linePanel2.setVisible(false);
+		//hide game components
+		ui.leftPanel.setVisible(false);
+		ui.rightPanel.setVisible(false);
+		//show instructions components
+		ui.explanationPanel1.setVisible(true);
+		ui.explanationImagePanel.setVisible(true);
+		ui.explanationPanel2.setVisible(true);
+		ui.linePanel3.setVisible(true);
+		ui.returnPanel.setVisible(true);	
 
 	}
 
