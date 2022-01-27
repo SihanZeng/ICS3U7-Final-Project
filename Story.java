@@ -1,10 +1,12 @@
 
+import java.util.*;
 public class Story {
 	
 	Main game;
 	UI ui;
 	VisibilityManager vm;
 	Player player = new Player();
+	Monster monster;
 	
 	public Story(Main g, UI userInterface, VisibilityManager vManager) {
 		
@@ -51,6 +53,11 @@ public class Story {
 		case "scene6_choice3_2_2": scene6_choice3_2_2(); break;
 		case "scene6_Tversion2": scene6_T2(); break;
 		case "scene6_choice2_2_3": scene6_choice2_2_3(); break;
+		case "combatScene5_32": combatScene5_32(); break;
+		case "playerAttack5_32": playerAttack5_32(); break;
+		case "monsterAttack5_32": monsterAttack5_32(); break;
+		case "battleWon5_32": battleWon5_32(); break;
+		case "gameOver5_32": gameOver5_32(); break;
 		
 		
 		}
@@ -235,7 +242,7 @@ public class Story {
 		ui.choice2Button.setText("");
 		ui.choice3Button.setText("");
 		
-		game.nextPosition1 = "";
+		game.nextPosition1 = "combatScene5_32";
 		game.nextPosition2 = "";
 		game.nextPosition3 = "";
 	}
@@ -274,7 +281,7 @@ public class Story {
 		ui.choice2Button.setText("");
 		ui.choice3Button.setText("");
 		
-		game.nextPosition1 = "";
+		game.nextPosition1 = "gameOver";
 		game.nextPosition2 = "";
 		game.nextPosition3 = "";
 	}
@@ -364,7 +371,7 @@ public class Story {
 		ui.choice2Button.setText("");
 		ui.choice3Button.setText("");
 		
-		game.nextPosition1 = "";
+		game.nextPosition1 = "combatScene6_222";
 		game.nextPosition2 = "";
 		game.nextPosition3 = "";
 	}
@@ -405,9 +412,166 @@ public class Story {
 		ui.choice2Button.setText("");
 		ui.choice3Button.setText("");
 		
-		game.nextPosition1 = "";
+		game.nextPosition1 = "gameOver";
 		game.nextPosition2 = "";
 		game.nextPosition3 = "";
+	}
+	
+	/*combat scenes*/
+	public void combatScene5_32() {
+		monster = new Monster();
+		ui.storyText.setText("You encountered an " + monster.name + "! \n"
+				+ monster.name + " HP: " + monster.hp);
+		ui.choice1Button.setText("Attack");
+		ui.choice2Button.setText("Flee");
+		ui.choice3Button.setText("");
+		
+		game.nextPosition1 = "playerAttack5_32";
+		game.nextPosition2 = "crossRoad5_32";
+		
+	}
+	
+	public void playerAttack5_32() {
+		int playerDamage = (int)(Math.random() * 10 + 1);
+		monster.hp -= playerDamage;
+		ui.storyText.setText("You attacked the " + monster.name + " and dealt " + playerDamage + " damage!");
+		ui.choice1Button.setText(">");
+		ui.choice2Button.setText("");
+		ui.choice3Button.setText("");
+		
+		if(monster.hp > 0) {
+			game.nextPosition1 = "monsterAttack5_32";
+			game.nextPosition2 = "";
+			game.nextPosition3 = "";
+		}
+		else {
+			game.nextPosition1 = "battleWon5_32";
+			game.nextPosition2 = "";
+			game.nextPosition3 = "";
+		}
+		System.out.println(monster.hp);
+		
+	}
+	
+	public void monsterAttack5_32() {
+		int monsterDamage = (int)(Math.random() * 4 + 1);
+		player.hp -= monsterDamage;
+		ui.hpLabel.setText("" + player.hp);
+		
+		ui.choice1Button.setText(">");
+		ui.choice2Button.setText("");
+		ui.choice3Button.setText("");
+		
+		if(player.hp > 0) {
+			game.nextPosition1 = "combatScene5_32";
+			game.nextPosition2 = "";
+			game.nextPosition3 = "";
+		}
+		else {
+			game.nextPosition1 = "gameOver5_32";
+			game.nextPosition2 = "";
+			game.nextPosition3 = "";
+		}		
+		
+	}
+	
+	public void battleWon5_32() {
+		ui.storyText.setText("You've defeated the " + monster.name + "!");
+		
+		ui.choice1Button.setText("Continue");
+		ui.choice2Button.setText("");
+		ui.choice3Button.setText("");
+		
+		game.nextPosition1 = "scene6_choice1_2_2";
+		game.nextPosition2 = "";
+		game.nextPosition3 = "";
+		
+	}
+	
+	public void combatScene6_222() {
+		monster = new Monster();
+		ui.storyText.setText("You encountered an " + monster.name + "! \n"
+				+ monster.name + " HP: " + monster.hp);
+		ui.choice1Button.setText("Attack");
+		ui.choice2Button.setText("Flee");
+		ui.choice3Button.setText("");
+		
+		game.nextPosition1 = "playerAttack6_222";
+		game.nextPosition2 = "crossRoad6_222";
+		
+	}
+	
+	public void playerAttack6_222() {
+		int playerDamage = (int)(Math.random() * 10 + 1);
+		ui.storyText.setText("You attacked the " + monster.name + " and dealt " + playerDamage + " damage!");
+		ui.choice1Button.setText(">");
+		ui.choice2Button.setText("");
+		ui.choice3Button.setText("");
+		
+		if(monster.hp > 0) {
+			game.nextPosition1 = "monsterAttack6_222";
+			game.nextPosition2 = "";
+			game.nextPosition3 = "";
+		}
+		else {
+			game.nextPosition1 = "battleWon6_222";
+			game.nextPosition2 = "";
+			game.nextPosition3 = "";
+		}
+		
+	}
+	
+	public void monsterAttack6_222() {
+		int monsterDamage = (int)(Math.random() * 4 + 1);
+		player.hp -= monsterDamage;
+		ui.hpLabel.setText("" + player.hp);
+		
+		ui.choice1Button.setText(">");
+		ui.choice2Button.setText("");
+		ui.choice3Button.setText("");
+		
+		if(player.hp > 0) {
+			game.nextPosition1 = "combatScene6_222";
+			game.nextPosition2 = "";
+			game.nextPosition3 = "";
+		}
+		else {
+			game.nextPosition1 = "gameOver6_222";
+			game.nextPosition2 = "";
+			game.nextPosition3 = "";
+		}		
+		
+	}
+	
+	public void battleWon6_222() {
+		ui.storyText.setText("You've defeated the " + monster.name + "!");
+		
+		ui.choice1Button.setText("Continue");
+		ui.choice2Button.setText("");
+		ui.choice3Button.setText("");
+		
+		game.nextPosition1 = "scene6_choice1_2_2";
+		game.nextPosition2 = "";
+		game.nextPosition3 = "";
+		
+	}
+	
+	public void gameOver5_32() {
+		ui.storyText.setText("You died on Scene 5-32!");
+		
+		ui.choice1Button.setText("Return to Main Menu");
+		ui.choice2Button.setText("");
+		ui.choice3Button.setText("");
+		
+		game.nextPosition1 = "toMenu";
+		game.nextPosition2 = "";
+		game.nextPosition3 = "";
+		
+	}
+	
+	public void toMenu() {
+		defaultSetup();
+		vm.displayMenu();
 	}
 	
 	
