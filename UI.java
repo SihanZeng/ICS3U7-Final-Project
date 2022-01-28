@@ -7,7 +7,7 @@ public class UI {
 	/*declare components*/
 	JFrame frame;
 	JPanel titlePanel, buttonPanel, leftPanel, choiceButtonPanel, rightPanel, explanationPanel1, explanationPanel2, explanationImagePanel, returnPanel, linePanel1, linePanel2, linePanel3;
-	JLabel titleLabel, authorLabel, explanationImage, sceneImage, weaponImage, hpLabel;
+	JLabel titleLabel, authorLabel, explanationImage, sceneImage, weaponImage, hpLabel, sceneImageTest;
 	JButton startButton, instructionsButton, closeButton, choice1Button, choice2Button, choice3Button, returnButton;
 	JTextArea storyText, questionText, explanationText1, explanationText2;
 	
@@ -119,12 +119,12 @@ public class UI {
 		ImageIcon sceneImageF1 = new ImageIcon("Assets/knife_image.png");
 		ImageIcon sceneImageF2 = new ImageIcon(sceneImageF1.getImage().getScaledInstance(360, 360, java.awt.Image.SCALE_SMOOTH));
 		sceneImage = new JLabel(sceneImageF2);
-		sceneImage.setBounds(410, 10, 360, 360);
+		sceneImage.setPreferredSize(new Dimension(360, 360));
 		//weapon image
 		ImageIcon weaponImageF1 = new ImageIcon("Assets/knife_image.png");
 		ImageIcon weaponImageF2 = new ImageIcon(weaponImageF1.getImage().getScaledInstance(120, 120, java.awt.Image.SCALE_SMOOTH));
 		weaponImage = new JLabel(weaponImageF2);
-		weaponImage.setBounds(515, 390, 120, 120);
+		weaponImage.setPreferredSize(new Dimension(120, 120));
 		//hp label
 		hpLabel = new JLabel("HP: 15");		
 		hpLabel.setBackground(Color.lightGray);
@@ -151,7 +151,7 @@ public class UI {
 		explanationPanel2.setBackground(Color.black);
 		//explanation text 2
 		explanationText2 = new JTextArea("The top left tells you the story of the current scene. The Bottom left is where you choose up to 3 options on how you wish to continue"
-				+ "The top right is an image of the scene. Below that may be an image of a knife if you have it in your inventory. The button right is your HP.");
+				+ "The top right is an image of the scene. Below is the image of the knife you carry to fight. The button right is your HP.");
 		explanationText2.setPreferredSize(new Dimension(770, 80));
 		explanationText2.setFont(explanationFont);
 		explanationText2.setLineWrap(true);

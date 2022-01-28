@@ -1,5 +1,7 @@
 public class Main {
 	
+public class Main {
+	
 	/*instantiate classes*/
 	ChoiceHandler cHandler = new ChoiceHandler(this);
 	UI ui = new UI();
