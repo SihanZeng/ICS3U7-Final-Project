@@ -1,32 +1,37 @@
+/*Sihan Zeng and Patricia Carucinschi
+ * January 28, 2021
+ * UI
+ * This class contains and all the components of the user interface*/
+
 /*import packages*/
 import java.awt.*;
 import javax.swing.*;
 
 public class UI {
-	
+
 	/*declare components*/
 	JFrame frame;
 	JPanel titlePanel, buttonPanel, leftPanel, choiceButtonPanel, rightPanel, explanationPanel1, explanationPanel2, explanationImagePanel, returnPanel, linePanel1, linePanel2, linePanel3;
 	JLabel titleLabel, authorLabel, explanationImage, sceneImage, weaponImage, hpLabel, sceneImageTest;
 	JButton startButton, instructionsButton, closeButton, choice1Button, choice2Button, choice3Button, returnButton;
 	JTextArea storyText, questionText, explanationText1, explanationText2;
-	
+
 	/*method to create frame*/
 	public void createUI(ChoiceHandler cHandler) {
-		
+
 		/*declare font*/
 		Font largeTitleFont = new Font("Times New Roman", Font.PLAIN, 90);
 		Font smallTitleFont = new Font("Times New Roman", Font.PLAIN, 26);
 		Font choiceButtonFont = new Font("Serif", Font.PLAIN, 16);
 		Font storyFont = new Font("Calibri", Font.PLAIN, 18);
 		Font explanationFont = new Font("Calibri", Font.PLAIN, 16);
-		
+
 		/*initialize frame*/
 		frame = new JFrame();
 		frame.setSize(800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new FlowLayout(FlowLayout.CENTER));
-		
+
 		/*create components of the main menu*/
 		//title panel
 		titlePanel = new JPanel(); 
@@ -70,7 +75,7 @@ public class UI {
 		closeButton.setFocusPainted(false);
 		closeButton.addActionListener(cHandler);
 		closeButton.setActionCommand("close");
-		
+
 		/*create components of the game screen*/
 		//left panel
 		leftPanel = new JPanel();
@@ -81,7 +86,6 @@ public class UI {
 		storyText = new JTextArea("This is where the story goes.");
 		storyText.setFont(storyFont);
 		storyText.setBackground(Color.lightGray); //should be changed/removed at some point
-		storyText.setForeground(Color.white);
 		storyText.setLineWrap(true);
 		storyText.setWrapStyleWord(true);
 		storyText.setEditable(false);
@@ -129,7 +133,7 @@ public class UI {
 		hpLabel = new JLabel("HP: 15");		
 		hpLabel.setBackground(Color.lightGray);
 		hpLabel.setForeground(Color.white);
-		
+
 		/*create components of the instructions screen*/
 		//explanation panel 1
 		explanationPanel1 = new JPanel();
@@ -175,7 +179,7 @@ public class UI {
 		returnButton = new JButton("Return");
 		returnButton.addActionListener(cHandler);
 		returnButton.setActionCommand("return");
-		
+
 		/*create line panel to take up a line*/
 		linePanel1 = new JPanel();
 		linePanel1.setPreferredSize(new Dimension(800, 60));
@@ -186,7 +190,7 @@ public class UI {
 		linePanel3 = new JPanel();
 		linePanel3.setPreferredSize(new Dimension(800, 10));
 		linePanel3.setBackground(Color.black);
-		
+
 		/*add components to panels*/
 		//menu panels
 		titlePanel.add(titleLabel);
@@ -211,7 +215,7 @@ public class UI {
 		explanationImagePanel.add(explanationImage);
 		explanationPanel2.add(explanationText2);
 		returnPanel.add(returnButton);
-		
+
 		/*add panels to frame*/
 		//menu components
 		frame.add(linePanel1);
@@ -228,11 +232,11 @@ public class UI {
 		frame.add(linePanel3);
 		frame.add(explanationPanel2);
 		frame.add(returnPanel);
-		
+
 		/*set frame visible*/
 		frame.setVisible(true);
 	}
-	
-	
+
+
 
 }

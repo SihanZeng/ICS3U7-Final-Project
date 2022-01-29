@@ -1,3 +1,8 @@
+/*Sihan Zeng and Patricia Carucinschi
+ * January 28, 2021
+ * ChoiceHandler
+ * This class constructs ChoiceHandler to create the object cHandler allowing the program to implement action listeners*/
+
 /*import packages*/
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

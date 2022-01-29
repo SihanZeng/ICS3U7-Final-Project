@@ -1,5 +1,8 @@
-public class Main {
-	
+/*Sihan Zeng and Patricia Carucinschi
+ * January 28, 2021
+ * Main
+ * This class creates the objects of the other classes and runs them to create the program*/
+
 public class Main {
 	
 	/*instantiate classes*/

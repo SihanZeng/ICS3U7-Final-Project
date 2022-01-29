@@ -1,3 +1,8 @@
+/*Sihan Zeng and Patricia Carucinschi
+ * January 28, 2021
+ * VisibilityManager
+ * This class contains the methods used to transition between user interfaces on the main menu*/
+
 /*import color for background*/
 import java.awt.Color;
 

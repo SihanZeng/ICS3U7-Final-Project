@@ -1,7 +1,14 @@
+/*Sihan Zeng and Patricia Carucinschi
+ * January 28, 2021
+ * Story
+ * This class contains the images, story, and methods that the program uses to transition between scenes*/
+
+/*import imageicon to allow image transitions*/
 import javax.swing.ImageIcon;
 
 public class Story {
 	
+	/*declare objects*/
 	Main game;
 	UI ui;
 	VisibilityManager vm;
@@ -64,12 +71,12 @@ public class Story {
 	public void defaultSetup() {
 		
 		player.hp = 30;
-		ui.hpLabel.setText("" + player.hp);
-		
-		player.knife = new Weapon();
-		ui.weaponImage.setText(player.knife.name);
-		
-	}
+   		ui.hpLabel.setText("" + player.hp);
+   		
+   		player.knife = new Weapon();
+   		ui.weaponImage.setText(player.knife.name);
+   		
+   	}
 	
 	public void selectPosition(String nextPosition) {
 		switch(nextPosition) {
@@ -353,7 +360,7 @@ public class Story {
 				+ "that it was within the area, and thus you begin your research on villages around the "
 				+ "area. After some browsing, you find an address on a reddit forum about these figures.");
 		ui.choice1Button.setText("Travel to the village to investigate further");
-		ui.choice2Button.setText("Return to the police station to tell them that you have the address");
+		ui.choice2Button.setText("Return to the police station");
 		ui.choice3Button.setText("");
 		
 		game.nextPosition1 = "scene6_T2";
@@ -367,11 +374,11 @@ public class Story {
 				+ "your fists. You strike him in the face, which then gets you immediately pushed down to the "
 				+ "ground with handcuffs on your wrists. Your slight anger issues have gotten in the way, and "
 				+ "now there is no way back. ");
-		ui.choice1Button.setText("gameOverStory");
+		ui.choice1Button.setText("Continue");
 		ui.choice2Button.setText("");
 		ui.choice3Button.setText("");
 		
-		game.nextPosition1 = "";
+		game.nextPosition1 = "gameOverStory";
 		game.nextPosition2 = "";
 		game.nextPosition3 = "";
 	}
@@ -601,7 +608,6 @@ public class Story {
 	/*Scenes 8*/
 	
 	public void scene8_choice1_1() {
-		//MISSING IMAGE
 		ui.storyText.setText("You slowly make your way to the hole the alien entered. It appears to be closed, but "
 				+ "you tap your foot on it and it opens. A circular platform zooms up to your level, and you stand "
 				+ "on it, taking it as it zooms down. At the bottom, many aliens are pointing their guns at you "
@@ -669,7 +675,6 @@ public class Story {
 	/*Scenes 9*/
 	
 	public void scene9_villageDeceptive() {
-		//MISSING IMAGE
 		ui.storyText.setText("After mentioning your friend’s name, a figure walks out and takes off their costume. "
 				+ "IT’S YOUR FRIEND. They explain that they are a group of Space Activists and are trying to get "
 				+ "more government funding for space agencies. You angrily tell them about how they disappeared "
@@ -686,7 +691,6 @@ public class Story {
 	}
 	
 	public void scene9_villageInternalSorrow() {
-		//MISSING IMAGE
 		ui.storyText.setText("After defeating all the figures, you examine the bodies to make sure they’re not still"
 				+ " alive. After taking off one of the costumes, you see that these aliens are actually humans "
 				+ "dressed up in alien costumes. As you continue to take off the costumes of all the other dead "
@@ -702,7 +706,6 @@ public class Story {
 	}
 	
 	public void scene9_villageExternalSorrow() {
-		//MISSING IMAGE
 		ui.storyText.setText("After dragging both bodies to your hideout, you notice that these aliens are actually "
 				+ "just humans wearing alien costumes. Taking off one of the costumes, you notice a flashing cube "
 				+ "strapped onto the person’s waist. You take it and inspect it, trying to understand what it is. "
@@ -839,7 +842,7 @@ public class Story {
 	public void combatScene5_32() {
 		monster = new Monster();
 		ui.storyText.setText("You encountered an " + monster.name + "! \n"
-				+ monster.name + " HP: " + monster.hp);
+				+ "Alien" + " HP: " + Monster.hp);
 		ui.choice1Button.setText("Attack");
 		ui.choice2Button.setText("");
 		ui.choice3Button.setText("");
@@ -852,13 +855,13 @@ public class Story {
 	
 	public void playerAttack5_32() {
 		int playerDamage = (int)(Math.random() * 10 + 1);
-		monster.hp -= playerDamage;
+		Monster.hp -= playerDamage;
 		ui.storyText.setText("You attacked the " + monster.name + " and dealt " + playerDamage + " damage!");
 		ui.choice1Button.setText(">");
 		ui.choice2Button.setText("");
 		ui.choice3Button.setText("");
 		
-		if(monster.hp > 0) {
+		if(Monster.hp > 0) {
 			game.nextPosition1 = "monsterAttack5_32";
 			game.nextPosition2 = "";
 			game.nextPosition3 = "";
@@ -868,7 +871,7 @@ public class Story {
 			game.nextPosition2 = "";
 			game.nextPosition3 = "";
 		}
-		System.out.println(monster.hp);
+		System.out.println(Monster.hp);
 		
 	}
 	
@@ -895,7 +898,7 @@ public class Story {
 	}
 	
 	public void battleWon5_32() {
-		monster.hp = 20;
+		Monster.hp = 20;
 		ui.storyText.setText("You've defeated the " + monster.name + "!");
 		
 		ui.choice1Button.setText("Continue");
@@ -911,9 +914,9 @@ public class Story {
 	public void combatScene6_222() {
 		monster = new Monster();
 		ui.storyText.setText("You encountered an " + monster.name + "! \n"
-				+ monster.name + " HP: " + monster.hp);
+				+ "Alien" + " HP: " + Monster.hp);
 		ui.choice1Button.setText("Attack");
-		ui.choice2Button.setText("Flee");
+		ui.choice2Button.setText("");
 		ui.choice3Button.setText("");
 		
 		game.nextPosition1 = "playerAttack6_222";
@@ -924,13 +927,13 @@ public class Story {
 	
 	public void playerAttack6_222() {
 		int playerDamage = (int)(Math.random() * 10 + 1);
-		monster.hp -= playerDamage;
+		Monster.hp -= playerDamage;
 		ui.storyText.setText("You attacked the " + monster.name + " and dealt " + playerDamage + " damage!");
 		ui.choice1Button.setText(">");
 		ui.choice2Button.setText("");
 		ui.choice3Button.setText("");
 		
-		if(monster.hp > 0) {
+		if(Monster.hp > 0) {
 			game.nextPosition1 = "monsterAttack6_222";
 			game.nextPosition2 = "";
 			game.nextPosition3 = "";
@@ -966,7 +969,7 @@ public class Story {
 	}
 	
 	public void battleWon6_222() { 
-		monster.hp = 20;
+		Monster.hp = 20;
 		ui.storyText.setText("You've defeated the " + monster.name + "!");
 		
 		ui.choice1Button.setText("Continue");
@@ -982,9 +985,9 @@ public class Story {
 	public void combatScene7_2122() { //scene6_T2
 		monster = new Monster();
 		ui.storyText.setText("You encountered an " + monster.name + "! \n"
-				+ monster.name + " HP: " + monster.hp);
+				+ "Alien" + " HP: " + Monster.hp);
 		ui.choice1Button.setText("Attack");
-		ui.choice2Button.setText("Flee");
+		ui.choice2Button.setText("");
 		ui.choice3Button.setText("");
 		
 		game.nextPosition1 = "playerAttack7_2122";
@@ -995,13 +998,13 @@ public class Story {
 	
 	public void playerAttack7_2122() {
 		int playerDamage = (int)(Math.random() * 10 + 1);
-		monster.hp -= playerDamage;
+		Monster.hp -= playerDamage;
 		ui.storyText.setText("You attacked the " + monster.name + " and dealt " + playerDamage + " damage!");
 		ui.choice1Button.setText(">");
 		ui.choice2Button.setText("");
 		ui.choice3Button.setText("");
 		
-		if(monster.hp > 0) {
+		if(Monster.hp > 0) {
 			game.nextPosition1 = "monsterAttack7_2122";
 			game.nextPosition2 = "";
 			game.nextPosition3 = "";
@@ -1037,7 +1040,7 @@ public class Story {
 	}
 	
 	public void battleWon7_2122() { 
-		monster.hp = 20;
+		Monster.hp = 20;
 		ui.storyText.setText("You've defeated the " + monster.name + "!");
 		
 		ui.choice1Button.setText("Continue");
